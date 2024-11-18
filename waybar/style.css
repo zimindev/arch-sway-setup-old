@@ -1,0 +1,190 @@
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+    
+    to {
+        color: white;
+        background-color: @warning_color;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @wm_icon_bg;
+    }
+
+    to {
+        color: @wm_icon_bg;
+        background-color: @error_color;
+    }
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: @theme_bg_color;
+    color: @wm_icon_bg;
+    font-family: Cantarell, Noto Sans, sans-serif;
+    font-size: 12px;
+}
+
+#window {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @theme_selected_bg_color;
+}
+
+#workspaces button.focused {
+    border-color: @theme_selected_bg_color;
+    color: @wm_icon_bg;
+    background-color: @theme_selected_bg_color;
+}
+
+#workspaces button.urgent {
+    border-color: @error_color;
+    color: @error_color;
+}
+
+#mode {
+    background: @background_color;
+}
+
+#custom-clock,
+#custom-menu,
+#custom-playerctl,
+#battery,
+#cpu,
+#language,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 4px;
+}
+
+#custom-clock {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#custom-menu {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: @theme_selected_bg_color;
+}
+
+#custom-playerctl {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#battery.warning {
+    color: @warning_color;
+}
+
+#battery.critical {
+    color: @error_color;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#language {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#memory {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#custom-gpu-usage {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#network {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#network.disconnected {
+    border-bottom: 3px solid #ffffff;
+}
+
+#pulseaudio {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#pulseaudio.muted {
+    border-bottom: 3px solid #ffffff;
+}
+
+#temperature {
+    border-bottom: 3px solid @theme_selected_bg_color;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+}
+
+#custom-wf-recorder {
+    color: @error_color;
+    padding-right: 10px;
+}
+
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}

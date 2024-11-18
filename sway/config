@@ -1,0 +1,22 @@
+### Include theme
+#
+include $HOME/.config/sway/themes/breeze-sway
+
+### Include config's
+#
+include /etc/sway/config.d/*
+include $HOME/.config/sway/config.d/*.conf
+
+include $HOME/.config/sway/inputs/*
+include $HOME/.config/sway/outputs/*
+
+### Include modes
+#
+include $HOME/.config/sway/modes/*
+
+#
+# Status Bar:
+#
+bar {
+   swaybar_command waybar
+}
